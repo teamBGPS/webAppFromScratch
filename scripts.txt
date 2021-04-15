@@ -82,6 +82,8 @@
        </servlet-mapping>
       </web-app>
 	- Run/Run
-	- In browser: localhost:8080 and - In browser: localhost:8080/hello
+	- In browser: localhost:8080 and localhost:8080/hello
+	
++1: clone repo, open pom file in IntelIJ, step 3.B, Run and check localhost:8080 and localhost:8080/hello
 
   	  
