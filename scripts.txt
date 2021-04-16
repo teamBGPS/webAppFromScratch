@@ -1,22 +1,24 @@
 1. https://maven.apache.org/archetypes/maven-archetype-webapp/
    
-    Interactive mode:
-     mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4
+    A. Interactive mode:
+       mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4
 
-     - groupId: org.teamBgps.demo.basicwebapp   (groupId will identify your project uniquely across all projects)
-	 - artifactId: web-app
-	 - version: 1.0
-	 - package: org.teamBgps.demo.basicwebapp
-	
-    Batch mode:	
-   	 mvn archetype:generate -B -DgroupId="org.teamBgps.demo.basicwebapp" -DartifactId="web-app" -Dversion="1.0" -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4  
+       - groupId: org.teamBgps.demo.basicwebapp   (groupId will identify your project uniquely across all projects)
+       - artifactId: web-app
+       - version: 1.0
+       - package: org.teamBgps.demo.basicwebapp
 
-2. Open pom file in IntelIJ	 
+    B. Batch mode:
+       mvn archetype:generate -B -DgroupId="org.teamBgps.demo.basicwebapp" -DartifactId="web-app" -Dversion="1.0" -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4
+
+
+2. Open pom file in IntelIJ
+
 
 3. Configure jetty as server in IntelIJ
- 
+
    A. add to pom file:
-   
+
    <build>
     ...
     <plugins>
@@ -28,21 +30,28 @@
     </plugins>
     ...
    </build>
-   
+
    B. Steps
       - Run/Edit configuration...
-	  - Add new configuration: Maven
-	    - Name: e.g. JettyServer
-		- Command line: jetty:run
-	  - Run/Run
-	  - In browser: localhost:8080
-	  
+
+      - Add new configuration: Maven
+        - Name: e.g. JettyServer
+        - Command line: jetty:run
+
+      - Run/Run
+
+      - In browser: localhost:8080
+
+
 4. Add servlet code
-    - New directory: src/main/java
-	- Mark directory as "sources root"
-	- New directory in java: org.teamBgps.demo.basicwebapp
-	- New class file HelloHello.java
-	   package org.teamBgps.demo.basicwebapp;
+    A. New directory: src/main/java
+
+    B. Mark directory as "sources root"
+
+    C. New directory in java: org.teamBgps.demo.basicwebapp
+
+    D. New class file HelloHello.java
+       package org.teamBgps.demo.basicwebapp;
        import java.io.IOException;
        import java.io.PrintWriter;
        import javax.servlet.annotation.WebServlet;
@@ -58,8 +67,9 @@
          out.println("Servlet: hello hello!");
         }
        }
-	- Add to pom file:
-	   <dependencies>
+
+    E. Add to pom file:
+       <dependencies>
        ...
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -69,9 +79,11 @@
             <scope>provided</scope>
         </dependency>
        </dependencies>
-	- Enable auto import during rebuild (right bottom during corner) 
-	- Add to web.xml
-	  <web-app>
+
+    F. Enable auto import during rebuild (right bottom during corner)
+
+    G. Add to web.xml
+      <web-app>
        <servlet>
         <servlet-name>HelloHelloName</servlet-name>
         <servlet-class>org.teamBgps.demo.basicwebapp.HelloHello</servlet-class>
@@ -81,9 +93,10 @@
         <url-pattern>/hello</url-pattern>
        </servlet-mapping>
       </web-app>
-	- Run/Run
-	- In browser: localhost:8080 and localhost:8080/hello
-	
-+1: clone repo, open pom file in IntelIJ, step 3.B, Run and check localhost:8080 and localhost:8080/hello
 
-  	  
+    H. Run/Run
+
+    I. In browser: localhost:8080 and localhost:8080/hello
+
+
++1: clone repo, open pom file in IntelIJ, step 3.B, Run and check localhost:8080 and localhost:8080/hello
